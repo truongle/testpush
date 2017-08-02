@@ -1,0 +1,23 @@
+<div style="color:red;margin:5px 0px 5px 5px;" data-sly-test="${wcmmode.edit}">
+  Carousel component
+</div>
+<sly data-sly-use.carouselComp="com.sutrix.demo.core.pojo.CarouselComponent" data-sly-unwrap>
+	<sly data-sly-test="${carouselComp.carousels}">
+		<h1>Title:${properties.title}</h1>
+		<sly data-sly-list="${carouselComp.carousels}"> 
+			<ul>
+				<li>
+					<a href="${item.path}.html">
+						${item.title}<br />
+						<sly data-sly-test="${item.desktopImgPath}">
+							<img src="${item.desktopImgPath}" width="150"/>
+						</sly>
+						<sly data-sly-test="${item.mobileImgPath}">
+							<img src="${item.mobileImgPath}" width="150"/>
+						</sly>
+					</a>
+				</li>
+			</ul>
+		</sly>
+	</sly>
+</sly>

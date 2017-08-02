@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    cq:showOnCreate="{Boolean}false"
+    granite:rel="cq-siteadmin-admin-properties-permissions"
+    jcr:primaryType="cq:Widget"
+    jcr:title="Permissions"
+    sling:resourceType="granite/ui/components/foundation/section">
+    <layout
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+        margin="{Boolean}false"/>
+    <items jcr:primaryType="nt:unstructured">
+        <column
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/container">
+            <items jcr:primaryType="nt:unstructured">
+                <actions
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container"
+                    class="coral-ButtonGroup">
+                    <items jcr:primaryType="nt:unstructured">
+                        <addpermission
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/button"
+                            class="coral-ButtonGroup-item foundation-field-edit permission-action-button"
+                            disabled="{Boolean}true"
+                            icon="coral-Icon--add"
+                            rel="cq-siteadmin-admin-properties-addpermission"
+                            text="Add Permission"
+                            variant="[secondary]">
+                            <rendercondition
+                                jcr:mixinTypes="[rep:AccessControllable]"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+                                path="${empty param.item ? requestPathInfo.suffix : param.item}"
+                                privileges="jcr:modifyAccessControl"/>
+                        </addpermission>
+                        <vieweffective
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/button"
+                            class="coral-ButtonGroup-item foundation-field-edit permission-action-button"
+                            disabled="{Boolean}false"
+                            icon="coral-Icon--viewList"
+                            rel="cq-siteadmin-admin-properties-vieweffective"
+                            target="#effective-permissions-modal"
+                            text="Effective Permissions"
+                            toggle="modal"
+                            variant="[secondary]"/>
+                    </items>
+                </actions>
+                <newpermission
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="New Permission"
+                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                    class="foundation-field-edit coral-Well"
+                    id="cq-siteadmin-admin-properties-newpermission"
+                    rel="cq-siteadmin-admin-properties-newpermission">
+                    <items jcr:primaryType="nt:unstructured">
+                        <authorizable
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/autocomplete"
+                            emptyText="Select user or group"
+                            forceselection="{Boolean}true"
+                            multiple="{Boolean}true"
+                            rel="cq-siteadmin-admin-properties-userpicker"
+                            renderReadOnly="{Boolean}true">
+                            <datasource
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/siteadmin/admin/properties/authorizable/authorizabledatasource"
+                                query="\{&quot;selector&quot;: &quot;authorizable&quot;, &quot;limit&quot;: {&quot;offset&quot;: 0, &quot;max&quot;: 25}, &quot;condition&quot;: [{&quot;not&quot;: {&quot;eq&quot;:{&quot;property&quot;: &quot;@jcr:primaryType&quot;, &quot;value&quot;: &quot;rep:SystemUser&quot;}}}], &quot;sort&quot;: {&quot;property&quot;: &quot;@rep:principalName&quot;, &quot;direction&quot;: &quot;asc&quot;}}"/>
+                            <values
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/autocomplete/tags"/>
+                            <options
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/siteadmin/admin/properties/authorizable/authorizablelist"/>
+                        </authorizable>
+                        <acl
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/include"
+                            path="wcm/core/content/sites/properties/userpermissions"/>
+                        <actions
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container">
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/endor/layouts/actionbar"/>
+                            <items jcr:primaryType="nt:unstructured">
+                                <addacl
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/button"
+                                    class="foundation-field-edit"
+                                    rel="cq-siteadmin-admin-properties-addacl"
+                                    renderReadOnly="{Boolean}true"
+                                    text="Add"
+                                    variant="[primary]">
+                                    <layoutConfig
+                                        jcr:primaryType="nt:unstructured"
+                                        align="right"/>
+                                </addacl>
+                                <cancel
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/button"
+                                    class="foundation-field-edit"
+                                    rel="cq-siteadmin-admin-properties-cancel"
+                                    renderReadOnly="{Boolean}true"
+                                    text="Cancel"
+                                    variant="[quiet]">
+                                    <layoutConfig
+                                        jcr:primaryType="nt:unstructured"
+                                        align="right"/>
+                                </cancel>
+                            </items>
+                        </actions>
+                    </items>
+                    <rendercondition
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+                        path="${empty param.item ? requestPathInfo.suffix : param.item}"
+                        privileges="jcr:modifyAccessControl"/>
+                </newpermission>
+                <acllist
+                    granite:rel="cq-siteadmin-admin-properties-aclentries"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container"
+                    itemscope="{Boolean}true">
+                    <granite:data
+                        jcr:primaryType="nt:unstructured"
+                        aclentries-src="/libs/foundation/components/page/cq:dialog/content/items/tabs/items/permissions/items/column/items/acllist.html${granite:encodeURIPath(empty param.item ? requestPathInfo.suffix : param.item)}"
+                        foundation-mode-group="cq-siteadmin-admin-properties-aclentries"/>
+                    <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/listview"
+                        itemprop="item"
+                        layoutId="list"
+                        maximized="{Boolean}false"/>
+                    <datasource
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/siteadmin/admin/properties/localacl/localacldatasource"
+                        itemResourceType="cq/gui/components/siteadmin/admin/properties/localacl/localaclentry"
+                        page="${empty param.item ? requestPathInfo.suffix : param.item}"/>
+                </acllist>
+                <path
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/form/hidden"
+                    id="page-path"
+                    value="${empty param.item ? requestPathInfo.suffix : param.item}"/>
+                <authorizableId
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/form/hidden"
+                    id="selected-authorizable"/>
+                <empty
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/gui/components/siteadmin/admin/properties/localacl/emptylocalacllist"
+                    class="foundation-field-hide-in-default">
+                    <emptycontentaction
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/hyperlink"
+                        href="#effective-permissions-modal"
+                        rel="cq-siteadmin-admin-properties-vieweffective"
+                        text="View effective permissions"
+                        title="View effective permissions"
+                        toggle="modal"/>
+                </empty>
+                <effectivepermissionsmodal
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Effective Permissions"
+                    sling:resourceType="granite/ui/components/foundation/container"
+                    id="effective-permissions-modal">
+                    <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/modal"
+                        closable="{Boolean}true"
+                        maximized="{Boolean}false"
+                        type="default"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <permissions
+                            granite:rel="cq-siteadmin-admin-properties-effective-permissions"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container"
+                            class="foundation-layout-util-maximized-alt"
+                            itemscope="{Boolean}true">
+                            <granite:data
+                                jcr:primaryType="nt:unstructured"
+                                effectiveacl-src="/libs/foundation/components/page/cq:dialog/content/items/columns/items/tabs/items/permissions/items/effectivepermissionsmodal/items/permissions.html${granite:encodeURIPath(empty param.item ? requestPathInfo.suffix : param.item)}"
+                                foundation-mode-group="cq-siteadmin-admin-properties-effective-permissions"/>
+                            <datasource
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/siteadmin/admin/properties/effectiveacl/effectiveacldatasource"
+                                itemResourceType="cq/gui/components/siteadmin/admin/properties/effectiveacl/effectiveaclentry"
+                                path="${empty param.item ? requestPathInfo.suffix : param.item}"/>
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/layouts/multilayouts"
+                                layout="list">
+                                <layouts jcr:primaryType="nt:unstructured">
+                                    <list
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/listview"
+                                        itemprop="item"
+                                        layoutId="list"
+                                        maximized="{Boolean}false"
+                                        stateId="cq-siteadmin-admin-properties-effective-permissions">
+                                        <headers
+                                            jcr:primaryType="nt:unstructured"
+                                            class="card-page"
+                                            movable="{Boolean}false"
+                                            selectable="{Boolean}false">
+                                            <principal
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/siteadmin/admin/pages/headers/deflt"
+                                                class="main"
+                                                configurable="{Boolean}false"
+                                                default="{Boolean}true"
+                                                sort-selector=".label .main .principal"
+                                                title="Principal"/>
+                                            <path
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/siteadmin/admin/pages/headers/deflt"
+                                                class="main"
+                                                configurable="{Boolean}false"
+                                                default="{Boolean}true"
+                                                sort-selector=".label .main .path"
+                                                title="Path"/>
+                                            <browse
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/siteadmin/admin/pages/headers/deflt"
+                                                class="permission"
+                                                configurable="{Boolean}false"
+                                                default="{Boolean}true"
+                                                title="Browse"/>
+                                            <edit
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/siteadmin/admin/pages/headers/deflt"
+                                                class="permission"
+                                                configurable="{Boolean}false"
+                                                default="{Boolean}true"
+                                                title="Modify"/>
+                                            <delete
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/siteadmin/admin/pages/headers/deflt"
+                                                class="permission"
+                                                configurable="{Boolean}false"
+                                                default="{Boolean}true"
+                                                title="Delete"/>
+                                            <replicate
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/siteadmin/admin/pages/headers/deflt"
+                                                class="permission"
+                                                configurable="{Boolean}false"
+                                                default="{Boolean}true"
+                                                title="Replicate"/>
+                                            <create
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/siteadmin/admin/pages/headers/deflt"
+                                                class="permission"
+                                                configurable="{Boolean}false"
+                                                default="{Boolean}true"
+                                                title="Create"/>
+                                        </headers>
+                                    </list>
+                                </layouts>
+                                <empty
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/siteadmin/admin/properties/effectiveacl/emptyeffectiveacllist"/>
+                            </layout>
+                        </permissions>
+                    </items>
+                </effectivepermissionsmodal>
+            </items>
+        </column>
+    </items>
+    <rendercondition
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+        path="${empty param.item ? requestPathInfo.suffix : param.item}"
+        privileges="jcr:readAccessControl"/>
+</jcr:root>

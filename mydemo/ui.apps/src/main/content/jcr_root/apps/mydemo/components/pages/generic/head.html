@@ -1,0 +1,13 @@
+<head data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+	<meta charset="utf-8" data-sly-use.head="head.js">
+	<title>${currentPage.title || currentPage.name}</title>
+	<meta name="keywords" content="${head.keywords}"/>
+	<meta name="description" content="${properties.jcr:description}"/>
+	
+	<!--/* Include the site client libraries (loading only the CSS in the header, JS will be loaded in the footer) */-->
+	<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.css @ categories='mydemo.all'}" data-sly-unwrap/>
+	
+	<!--/* Initializes the Experience Manager authoring UI */-->
+	<sly data-sly-include="/libs/wcm/core/components/init/init.jsp"/>
+	
+</head>

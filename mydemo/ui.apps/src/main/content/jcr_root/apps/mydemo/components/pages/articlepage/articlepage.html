@@ -1,0 +1,216 @@
+<header data-search="" data-navigation="" id="headerChange" class="header">
+    <div class="container">
+        <div class="inner">
+            <div class="logo">
+                <a title="Qatar Business Events" href="#"><img src="${properties.logoLink ? properties.logoLink : '/content/dam/ngocptqatar/images/logo.svg'}" alt="Qatar Business Events" /></a>
+            </div>
+            <div class="language-wrapper">
+                <div class="language">
+                    <a href="#" data-toggle-show=".lang-dopdown" id="btn-lang" class="btn-lang">عربي</a>
+                </div>
+                <button type="button" id="btn-open" onclick="openMenu()" class="qa-btn-1">
+                    <em class="ico-search"></em>
+                </button>
+            </div>
+            <div class="menu-wrapper">
+                <a href="#" title="button" class="btn-hamburger"><span
+					class="inner"><span class="top"></span><span class="middle"></span><span
+						class="bottom"></span></span></a>
+                <div class="outer">
+                    <div class="inner scrollAble">
+                        <nav class="top-menu clearfix">
+                            <ul>
+                                <li><a title="Business Events" href="#" target="_blank">
+										${properties.businessEvents ? properties.businessEvents
+										:"Business Events"}</a></li>
+                                <li class="active"><a title="Coporate" href="#" target="_blank"> ${properties.coporate ?
+										properties.coporate :"Coporate"}</a></li>
+                                <li><a title="Events" href="#" target="_blank">
+										${properties.events ? properties.events :"Events"}</a></li>
+                                <li class="active"><a title="Media" href="#" target="_blank"> ${properties.media ? properties.media
+										:"Media"}</a></li>
+                                <li><a title="Contact us" href="#" target="_blank">
+										${properties.contactUs ? properties.contactUs :"Contact us"}</a></li>
+                            </ul>
+                        </nav>
+                        <aside class="search-block">
+                            <form method="POST" action="#">
+                                <button type="submit" class="qa-btn-1">
+                                    <em class="ico-search"></em>
+                                </button>
+                                <!-- type="text" name="search-field-1" placeholder="${properties.search ? properties.search :"Search"}" -->
+                                <div class="form-group">
+                                    <label for="search-field-1" class="hidden">&nbsp;</label>
+                                    <input type="text" name="search-field-1" placeholder='${properties.search ? properties.search :"Search"}' data-stick-input="" id="search-field-1" class="input-2">
+                                </div>
+                                <button type="button" id="btn-close" onclick="closeMenu()" class="btn-close"></button>
+                            </form>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="main">
+    <nav data-menu="" class="main-menu-wrapper">
+        <div class="container">
+            <div id="result"></div>
+            <ul class="main-menu menu-level-1" id="id-main-html">
+                <li class="active"><a title="Home" href="#">Home</a></li>
+                <li class="has-child"><a title="Welcome" href="#">Welcome</a>
+                    <div class="sub-menu sub-menu-3">
+                        <div class="menu-col">
+                            <a title="Venues" href="#" class="sub-title">Venues</a>
+                            <a title="Venues" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/venues-thumb-nav.jpg" alt="Venues" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="Unique venues" href="#" class="sub-title">Unique
+							venues</a>
+                            <a title="Unique venues" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/unique-venues-thumb-nav.jpg" alt="Unique venues" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="Business event providers" href="#" class="sub-title">Business
+							event providers</a>
+                            <a title="Business event providers" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/business-event-providers-thumb.jpg" alt="Business event providers" /></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-child"><a title="Discover" href="#">Discover</a>
+                    <div class="sub-menu sub-menu-3">
+                        <div class="menu-col">
+                            <a title="Qatar the destination" href="#" class="sub-title">Qatar
+							the destination</a>
+                            <a title="Qatar the destination" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/qatar-destination-thumb-nav.jpg" alt="Qatar the destination" /></a>
+                            <ul class="menu-level-2">
+                                <li class="active"><a title="Culture &amp; heritage" href="#">Culture & heritage</a></li>
+                                <li><a title="Activities &amp; adventures" href="#">Activities
+									& adventures</a></li>
+                                <li><a title="Luxury &amp; relaxation" href="#">Luxury &
+									relaxation</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-col">
+                            <a title="Business events in Qatar" href="#" class="sub-title">Business
+							events in Qatar</a>
+                            <a title="Business events in Qatar" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/business-events-thumb-nav.jpg" alt="Business events in Qatar" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="FAQ" href="#" class="sub-title">FAQ</a>
+                            <a title="FAQ" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/faq-thumb-nav.jpg" alt="FAQ" /></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-child"><a title="Enjoy" href="#">Enjoy</a>
+                    <div class="sub-menu sub-menu-7">
+                        <div class="menu-col">
+                            <a title="Qatar the destination" href="#" class="sub-title">Qatar
+							the destination</a>
+                            <a title="Qatar the destination" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/qatar-destination-thumb-nav.jpg" alt="Qatar the destination" /></a>
+                            <ul class="menu-level-2">
+                                <li class="active"><a title="Culture &amp; heritage" href="#">Culture & heritage</a></li>
+                                <li><a title="Activities &amp; adventures" href="#">Activities
+									& adventures</a></li>
+                                <li><a title="Luxury &amp; relaxation" href="#">Luxury &
+									relaxation</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-col">
+                            <a title="Business events in Qatar" href="#" class="sub-title">Business
+							events in Qatar</a>
+                            <a title="Business events in Qatar" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/business-events-thumb-nav.jpg" alt="Business events in Qatar" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="FAQ" href="#" class="sub-title">FAQ</a>
+                            <a title="FAQ" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/faq-thumb-nav.jpg" alt="FAQ" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="About Qatar Tourism Authority" href="#" class="sub-title">About Qatar Tourism Authority</a>
+                            <a title="About Qatar Tourism Authority" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/about-qatar-tourism-authority-thumb-nav.jpg" alt="About Qatar Tourism Authority" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="Business events in Qatar" href="#" class="sub-title">Business
+							events in Qatar</a>
+                            <a title="Business events in Qatar" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/business-events-thumb-nav.jpg" alt="Business events in Qatar" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="FAQ" href="#" class="sub-title">FAQ</a>
+                            <a title="FAQ" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/faq-thumb-nav.jpg" alt="FAQ" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="About Qatar Tourism Authority" href="#" class="sub-title">About Qatar Tourism Authority</a>
+                            <a title="About Qatar Tourism Authority" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/about-qatar-tourism-authority-thumb-nav.jpg" alt="About Qatar Tourism Authority" /></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-child"><a title="Plan" href="#">Plan</a>
+                    <div class="sub-menu sub-menu-6">
+                        <div class="menu-col">
+                            <a title="Qatar the destination" href="#" class="sub-title">Qatar
+							the destination</a>
+                            <a title="Qatar the destination" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/qatar-destination-thumb-nav.jpg" alt="Qatar the destination" /></a>
+                            <ul class="menu-level-2">
+                                <li class="active"><a title="Culture &amp; heritage" href="#">Culture & heritage</a></li>
+                                <li><a title="Activities &amp; adventures" href="#">Activities
+									& adventures</a></li>
+                                <li><a title="Luxury &amp; relaxation" href="#">Luxury &
+									relaxation</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-col">
+                            <a title="Business events in Qatar" href="" class="sub-title">Business
+							events in Qatar</a>
+                            <a title="Business events in Qatar" href="" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/business-events-thumb-nav.jpg" alt="Business events in Qatar" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="FAQ" href="" class="sub-title">FAQ</a>
+                            <a title="FAQ" href="" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/faq-thumb-nav.jpg" alt="FAQ" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="About Qatar Tourism Authority" href="#" class="sub-title">About Qatar Tourism Authority</a>
+                            <a title="About Qatar Tourism Authority" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/about-qatar-tourism-authority-thumb-nav.jpg" alt="About Qatar Tourism Authority" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="Business events in Qatar" href="#" class="sub-title">Business
+							events in Qatar</a>
+                            <a title="Business events in Qatar" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/business-events-thumb-nav.jpg" alt="Business events in Qatar" /></a>
+                        </div>
+                        <div class="menu-col">
+                            <a title="FAQ" href="#" class="sub-title">FAQ</a>
+                            <a title="FAQ" href="#" class="sub-img"><img src="/content/dam/ngocptqatar/images/upload/faq-thumb-nav.jpg" alt="FAQ" /></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-child"><a title="Learn" href="#">Learn</a></li>
+            </ul>
+        </div>
+        <div hidden="true" class="container" data-sly-use.headerUsePojo="com.sutrix.qatar.core.control.wcmusepojo.HeaderWCMUsePojo" data-sly-test="${headerUsePojo.lstMenuHeader}">
+            <ul class="main-menu menu-level-1" id="id-gen-html" data-sly-list.menuHeader="${headerUsePojo.lstMenuHeader}">
+                <li class="has-child"><a title="${menuHeader.title}" href="${menuHeader.link}">${menuHeader.title}</a>
+                    <div data-sly-test="${menuHeader.lstMenuLv2}" data-sly-list.lstMenuLevel2="${menuHeader.lstMenuLv2}" class="sub-menu sub-menu-${menuHeader.length}">
+                        <div class="menu-col">
+                            <a title="${lstMenuLevel2.title}" href="${lstMenuLevel2.link}" class="sub-title">
+                            ${lstMenuLevel2.title}</a>
+                            <a title="${lstMenuLevel2.title}" href="${lstMenuLevel2.link}" class="sub-img"><img src="${lstMenuLevel2.imgSrc}" alt="${lstMenuLevel2.imgAlt}" height="83" width="181" /></a>
+                            <ul class="menu-level-2" data-sly-test="${lstMenuLevel2.lstMenuLv3}" data-sly-list.lstMenuLv3="${lstMenuLevel2.lstMenuLv3}">
+                                <li class="active"><a title="${lstMenuLv3.title}" href="${lstMenuLv3.link}">${lstMenuLv3.title}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</main>
+<script>
+	var genHtml = $("#id-gen-html").html();
+	var removeDefaultMenu = "${properties.removeDefaultMenu  @ context='unsafe'}" == 'isChecked';
+	if (removeDefaultMenu) {
+	    $("#id-main-html").empty();
+	}
+	var menus = '${properties.menus @ context="unsafe"}';
+	menus = menus.split(',');
+	if (menus.length > 0) {
+	    $('#id-main-html').append(genHtml)
+	}
+</script>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    cq:showOnCreate="{Boolean}false"
+    granite:rel="cq-siteadmin-admin-properties-livecopy"
+    jcr:primaryType="cq:Widget"
+    jcr:title="Live Copy"
+    sling:resourceType="granite/ui/components/foundation/section">
+    <layout
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+        margin="{Boolean}false"/>
+    <items jcr:primaryType="nt:unstructured">
+        <column
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/container">
+            <items jcr:primaryType="nt:unstructured">
+                <writelivecopyconfig
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/form/hidden"
+                    name="msm:writeLiveCopyConfig"
+                    value="true"/>
+                <source
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Source"
+                    sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                    <items jcr:primaryType="nt:unstructured">
+                        <source
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/msm/components/touch-ui/propertiesdialog/livecopy/source"
+                            path="${empty param.item ? requestPathInfo.suffix : param.item }"/>
+                    </items>
+                </source>
+                <status
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Status"
+                    sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                    <items jcr:primaryType="nt:unstructured">
+                        <status
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/msm/components/touch-ui/propertiesdialog/livecopy/status"
+                            path="${empty param.item ? requestPathInfo.suffix : param.item }"/>
+                    </items>
+                </status>
+                <configuration
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Configuration"
+                    sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                    <items jcr:primaryType="nt:unstructured">
+                        <deepinheritance
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/msm/components/touch-ui/propertiesdialog/livecopy/deepinheritance"
+                            fieldDescription="If checked Live Copy configuration is effective on all children"
+                            name="msm:isDeep"
+                            path="${empty param.item ? requestPathInfo.suffix : param.item }"
+                            text="LiveCopy Inheritance"/>
+                    </items>
+                </configuration>
+                <rolloutconfiguration
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Rollout Configuration"
+                    sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                    <items jcr:primaryType="nt:unstructured">
+                        <inhertrolloutconfigs
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/msm/components/touch-ui/propertiesdialog/livecopy/inheritrolloutconfigs"
+                            name="msm:inheritRolloutConfigs"
+                            path="${empty param.item ? requestPathInfo.suffix : param.item }"
+                            rel="cq-siteadmin-admin-properties-livecopy-inheritrolloutconfigs"
+                            renderReadOnly="{Boolean}true"
+                            target="cq-siteadmin-admin-properties-livecopy-rolloutconfigs"
+                            text="Inherit Rollout Configuration from Parent"
+                            value="true"/>
+                        <rolloutconfigs
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/msm/components/touch-ui/propertiesdialog/livecopy/rolloutconfigs"
+                            emptyText="Choose rollout configuration"
+                            name="msm:liveCopyRolloutConfigs"
+                            path="${empty param.item ? requestPathInfo.suffix : param.item }"
+                            rel="cq-siteadmin-admin-properties-livecopy-rolloutconfigs"
+                            required="true">
+                            <datasource
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/msm/components/datasources/rolloutconfig"/>
+                        </rolloutconfigs>
+                    </items>
+                </rolloutconfiguration>
+            </items>
+        </column>
+    </items>
+    <rendercondition
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="wcm/msm/components/touch-ui/renderconditions/islivecopy"
+        path="${empty param.item ? requestPathInfo.suffix : param.item}"/>
+</jcr:root>
